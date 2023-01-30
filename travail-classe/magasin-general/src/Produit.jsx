@@ -1,9 +1,11 @@
-export default function Produit() {
+export default function Produit(props) {
+  console.log("Les propriétés du produit : ", props);
+
     return (
         <div>
           <img src="" alt="" />
-          <span className=''>Chaussure 1</span>
-          <span className="prix">125.95</span>
+          <span className=''>{props.nom}</span>
+          <span className=''>{props.prix}</span>
           <button>Ajouter au panier</button>
         </div>
         
