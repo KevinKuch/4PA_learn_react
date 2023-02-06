@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/4PA_learn_react/static/css/main.17036cee.css",
+    "main.js": "/4PA_learn_react/static/js/main.f37adf1b.js",
+    "index.html": "/4PA_learn_react/index.html",
+    "main.17036cee.css.map": "/4PA_learn_react/static/css/main.17036cee.css.map",
+    "main.f37adf1b.js.map": "/4PA_learn_react/static/js/main.f37adf1b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.17036cee.css",
+    "static/js/main.f37adf1b.js"
+  ]
+}
