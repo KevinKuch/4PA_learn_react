@@ -5,9 +5,9 @@ export default function Produit(props) {
 
     return (
         <article className="Produit">
-          <img src="" alt="" />
-          <span className=''>{props.nom}</span>
-          <span className=''>{props.prix}</span>
+          <img src={'images-produits/' + props.pid + '.webp'} alt={props.nom} />
+          <span className='nom'>{props.nom}</span>
+          <span className='prix'>{props.prix}</span>
           <button>Ajouter au panier</button>
         </article>
         

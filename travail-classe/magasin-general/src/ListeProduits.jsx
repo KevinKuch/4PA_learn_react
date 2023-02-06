@@ -32,7 +32,7 @@ export default function ListeProduits() {
             <section className="produits">
               {
                 produits.map(function(prd) {
-                  return <Produit nom={prd.nom} prix={prd.prix} />
+                  return <Produit nom={prd.nom} prix={prd.prix} pid={prd.id} />
                 })
               } 
             </section>

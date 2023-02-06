@@ -1,16 +1,16 @@
 [
     {
-        "id": "pr0001",
+        "id": "prd0001",
         "nom": "Pantalon",
         "prix": 31.95
     },
     {
-        "id": "pr0002",
+        "id": "prd0002",
         "nom": "T-shirt",
         "prix": 11.95
     },
     {
-        "id": "pr0003",
+        "id": "prd0003",
         "nom": "Chemise",
         "prix": 22.50
     }
