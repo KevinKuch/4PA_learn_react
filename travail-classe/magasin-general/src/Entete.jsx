@@ -1,7 +1,9 @@
+import './Entete.scss';
+
 function Entete() {
 
     return (
-        <header>
+        <header className="Entete">
             <h1>Magasin Général</h1>
             <nav>
                 <span>Produits</span>
