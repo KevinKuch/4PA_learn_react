@@ -10,6 +10,5 @@ export default function Produit(props) {
           <span className='prix'>{props.prix}</span>
           <button>Ajouter au panier</button>
         </article>
-        
     );
 }
