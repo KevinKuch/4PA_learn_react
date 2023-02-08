@@ -3,7 +3,7 @@ import './ListeProduits.scss';
 import Produit from "./Produit";
 import produits from './data/produits.json';
 
-export default function ListeProduits() {
+export default function ListeProduits(props) {
     console.log("Les produits : ", produits);
 
     // Pas la 'manière' REACT de faire
@@ -32,7 +32,7 @@ export default function ListeProduits() {
             <section className="produits">
               {
                 produits.map(function(prd) {
-                  return <Produit nom={prd.nom} prix={prd.prix} pid={prd.id} />
+                  return <Produit panier={props.panier} setPanier={props.setPanier} key= {prd.id} nom={prd.nom} prix={prd.prix} pid={prd.id} />
                 })
               } 
             </section>
