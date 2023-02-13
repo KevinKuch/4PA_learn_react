@@ -1,8 +1,7 @@
 import './Produit.scss'
+import Badge from '@mui/material/Badge';
 
-export default function Produit(props) {
-  let panier = props.panier;
-  let setPanier = props.setPanier;
+export default function Produit({panier, setPanier, nom, prix, pid}) {
   
 
   function ajouterPanier() {
@@ -14,11 +13,11 @@ export default function Produit(props) {
 
 
     // On doit ajouter le produit au panier 
-    if (clonePanier[props.pid]) {
-      clonePanier[props.pid].qte++;
+    if (clonePanier[pid]) {
+      clonePanier[pid].qte++;
     }
     else {
-      clonePanier[props.pid] = {prix: props.prix, qte : 1};
+      clonePanier[pid] = {prix: prix, qte : 1};
     }
 
     // Puis on doit donner à setPanier() la nouvelle valeur du panier
@@ -33,10 +32,12 @@ export default function Produit(props) {
 
     return (
         <article className="Produit">
-          <img src={'images-produits/' + props.pid + '.webp'} alt={props.nom} />
-          <span className='nom'>{props.nom}</span>
-          <span className='prix'>{props.prix}</span>
+          <img src={'images-produits/' + pid + '.webp'} alt={nom} />
+          <span className='nom'>{nom}</span>
+          <span className='prix'>{prix}</span>
+          <Badge badgeContent={panier[pid] ? panier[pid].qte : 0} color="primary">
           <button onClick={ajouterPanier}>Ajouter au panier</button>
+          </Badge>
         </article>
     );
 }

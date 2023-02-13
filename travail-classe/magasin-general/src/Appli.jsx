@@ -7,10 +7,31 @@ import {useState} from 'react';
 
 
 function Appli() {
+  // panier = {
+  //   prd0015: {prix: 15.95, qte: 12}
+  //   prd0015: {prix: 15.95, qte: 12}
+  //   prd0015: {prix: 15.95, qte: 12}
+  //   prd0015: {prix: 15.95, qte: 12}
+  //   prd0015: {prix: 15.95, qte: 12}
+  //   prd0015: {prix: 15.95, qte: 12}
+  // }
+
+
+
+
+
+
   // On utilise le HOOK useState() pour créer un état
-  const etatPanier = useState({});
-  let panier = etatPanier[0];
-  let setPanier = etatPanier[1];
+  // const etatPanier = useState({});
+  // let panier = etatPanier[0];
+  // let setPanier = etatPanier[1];
+
+  // or 
+  // Je veux maintenir le panier dans un objet JS surveillé par REACT
+  const [panier, setPanier] = useState({});
+
+
+
   return (
     <div className="Appli">
         <Entete panier = {panier}/>
