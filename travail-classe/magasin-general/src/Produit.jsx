@@ -24,12 +24,6 @@ export default function Produit({panier, setPanier, nom, prix, pid}) {
     setPanier(clonePanier);
   }
 
-
-
-
-
-
-
     return (
         <article className="Produit">
           <img src={'images-produits/' + pid + '.webp'} alt={nom} />
