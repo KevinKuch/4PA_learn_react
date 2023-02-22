@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemples avec les méthodes des tableax filter(), map(), reduce()</title>
+</head>
+<body>
+    <p>Inspectez le code</p>
+    <script>
+        let fruits = [
+            "Orange",
+            "Banane",
+            "Pomme",
+            "Poire",
+            "Orange",
+            "Fraise",
+            "Mangue",
+            "Pêche",
+            "Ananas",
+            "Orange"
+        ];
+
+        let etudiants = [
+            {
+                nom: 'Martin',
+                note: 12
+            },
+            {
+                nom: 'Osvaldo',
+                note: 20
+            },
+            {
+                nom: 'Jean',
+                note: 80
+            },
+            {
+                nom: 'Kevin',
+                note: 100
+            },
+            {
+                nom: 'Natasha',
+                note: 90
+            },
+            {
+                nom: 'David',
+                note: 87
+            },
+            
+        ];
+
+        //filter() : retourne un ***nouveau*** tableau filtré d'après un tableau original
+
+        //Exemple 1 : retourner le tableau des fruits qui commencent par la lettre P
+
+        let fruitsSpeciaux = fruits.filter((f) => f.startsWith('P'));
+        console.log("Le tableau de fruits en P : ", fruitsSpeciaux);
+
+        // Exemple 2:...
+        let etudiantsEchec = etudiants.filter((etd) => etd.note < 60);
+        console.log("Les étudiants en échec : ", etudiantsEchec);
+        console.log("Le tableau original étudiants n'est pas modifié: ", etudiantsEchec);
+
+
+        //map() : retourne un ***nouveau*** tableau contenant les éléments modifiés du tableau original
+
+
+        //Exemple 3: ajouter un commentaire aux étudiants en échec
+        let etudiantsAvecCommentaires = 
+            etudiants.map(etd => {
+                if(etd.note<60) {
+                    etd.commentaire = "Attention: tu es en danger d'échec!";
+                }
+                return etd;
+            });
+
+            console.log("Tableau modifié des étudiants avec commentaires : ", etudiantsAvecCommentaires);
+            console.log("Tableau des notes: ", etudiants.map(e => e.note));
+
+
+            //reduce() : manupule de façon itérative les éléments d'un tableau et retourne une valeur
+
+            // Retourne la moyenne de la classe
+            console.log("Moyenne des notes: ", 
+                Math.round(
+                    // accumulateur et élément suivant
+                    etudiants.reduce((acc, suiv) => acc + suiv.note, 0)
+                    /etudiants.length)
+                );
+
+                // Retourner le tableau des fruits sans répétition
+                console.log('Tableau des Fruits uniques: ',
+                    fruits.reduce(
+                            (acc, suiv) => {
+                            if(!acc.includes(suiv)) {
+                                acc.push(suiv);
+                            }
+                            return acc;
+                        }, 
+                        []
+                    )
+                );
+                
+    </script>
+</body>
+</html>
