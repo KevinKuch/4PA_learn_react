@@ -11,13 +11,18 @@ import { useState } from 'react';
 export default function FrmDossier({ouvert, setOuvert, actionDossier}) {
 	const [titre, setTitre] = useState('');	
 	const [couverture, setCouverture] = useState('');
-	const [couleur, setCouleur] = useState('');
+	const [couleur, setCouleur] = useState('#000');
 
 	console.log("Le titre dans le formulaire : ", titre);
 	console.log("La couverture dans le formulaire : ", couverture);
 	console.log("La couleur dans le formulaire : ", couleur);
 
   function gererFermer() {
+    setTitre('');
+    setCouleur('');
+    setCouverture('');
+
+
     setOuvert(false);
   };
 
