@@ -8,16 +8,29 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { TwitterPicker } from 'react-color';
 import { useState } from 'react';
 
-export default function FrmDossier({ouvert, setOuvert}) {
+export default function FrmDossier({ouvert, setOuvert, actionDossier}) {
 	const [titre, setTitre] = useState('');	
 	const [couverture, setCouverture] = useState('');
 	const [couleur, setCouleur] = useState('');
 
 	console.log("Le titre dans le formulaire : ", titre);
+	console.log("La couverture dans le formulaire : ", couverture);
+	console.log("La couleur dans le formulaire : ", couleur);
 
   function gererFermer() {
     setOuvert(false);
   };
+
+  function gererActionDossier() {
+    let date = new Date();
+    let id = 'ds_' + date.getTime() + Math.random();
+    actionDossier(id, titre, couverture, couleur, date.toJSON());
+
+    // Fermer la boite de dialogue
+    gererFermer();
+  }
+
+  
 
   return (
     <div className='FrmDossier'>
@@ -48,12 +61,12 @@ export default function FrmDossier({ouvert, setOuvert}) {
 						width='auto'
 						color={'#ff0000'}
 						colors={['#0f0', '#00f', '#036', '#960']}
-						onChangeComplete={evt=>setCouleur(evt.target.color)}
+						onChangeComplete={(couleur)=>setCouleur(couleur.hex)}
 					/>
         </DialogContent>
         <DialogActions>
           <Button onClick={gererFermer}>Annuler</Button>
-          <Button onClick={gererFermer}>Soumettre</Button>
+          <Button onClick={gererActionDossier}>Soumettre</Button>
         </DialogActions>
       </Dialog>
     </div>
