@@ -9,27 +9,23 @@ import { useEffect, useState } from 'react';
 export default function Appli() {
   const [frmDossierOuvert, setFrmDossierOuvert] = useState(false);
 
-
   // État des dossiers de l'utilisateur
   /*
-    Structure de la variable dossiers :
-
+    Structure de la variable dossiers : 
     [
-      {id: '124135135143124', 
-      titre: 'Politique et économie', c
-      ouverture: 'https://exemple.com', 
-      couleur: '#fff', 
-      dateModif: '2023-03-01t12:43:67.234z'},
+      {
+        id: '4356345673.435673475', 
+        titre: 'Politique et économie', 
+        couverture: 'http://fdhshfdshkd.com/img.png', 
+        couleur: '#600', 
+        dateModif: 546739569346593
+      },
+      {id: '576756756.6376568', titre: 'Théâtre', couverture: 'http://fdhshfdshkd.com/img.png', couleur: '#600', dateModif: '2023-03-01t12:43:67.234z'},
+      {id: '2545345.78478', titre: 'Philosophie', couverture: 'http://fdhshfdshkd.com/img.png', couleur: '#600', dateModif: '2023-03-01t12:43:67.234z'},
+      {id: '778678676.96798678678', titre: 'Mathématiques', couverture: 'http://fdhshfdshkd.com/img.png', couleur: '#600', dateModif: '2023-03-01t12:43:67.234z'}
 
-      {id: '15215523', titre: 'Théâtre', couverture: 'https://exemple.com', couleur: '#0fff', dateModif: '2023-04-01t12:43:67.234z'},
-      {id: '', titre: 'Philosophie', couverture: 'https://exemple.com', couleur: '#0f0f', dateModif: '2023-03-01t12:43:67.234z'},
-      {id: '', titre: 'Politique et économie', couverture: 'https://exemple.com', couleur: '#fff', dateModif: '2023-03-01t12:43:67.234z'},
-      {id: '', titre: 'Politique et économie', couverture: 'https://exemple.com', couleur: '#fff', dateModif: '2023-03-01t12:43:67.234z'},
     ]
-
-
-   * 
-   */
+  */
   const [dossiers, setDossiers] = useState(
     () => JSON.parse(localStorage.getItem('4pa-dossiers')) || []
   );
@@ -43,26 +39,26 @@ export default function Appli() {
     setFrmDossierOuvert(true);
   }
 
-
-  function ajouterDossier(id, titre, couverture, couleur, date) {
-    setDossiers([...dossiers, 
+  function ajouterDossier(id, titre, couverture, couleur, timestamp) {
+    setDossiers([...dossiers,
       {
         id: id,
         titre: titre,
         couverture: couverture,
         couleur: couleur,
-        dateModif: date
+        dateModif: timestamp
       }
     ]);
   }
-
 
   return (
     <div className="Appli">
         <Entete />
         <section className="contenu-principal">
-          <ListeDossiers dossiers={dossiers} setDossiers={setDossiers}/>
-          <FrmDossier ouvert={frmDossierOuvert} setOuvert={setFrmDossierOuvert} actionDossier={ajouterDossier} />
+          <ListeDossiers dossiers={dossiers} setDossiers={setDossiers} />
+          
+          <FrmDossier ouvert={frmDossierOuvert} setOuvert={setFrmDossierOuvert} actionDossier={ajouterDossier}/>
+          
           <Fab onClick={ouvrirFrmDossier} size="large" className="ajoutDossier" color="secondary" aria-label="Ajouter dossier">
             <AddIcon />
           </Fab>
